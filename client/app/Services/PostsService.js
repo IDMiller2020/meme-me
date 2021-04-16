@@ -1,10 +1,12 @@
 import { ProxyState } from '../AppState.js'
 import Post from '../Models/Post.js'
+import {api} from '../Services/AxiosService.js'
 
 class PostsService {
-  async addPost() {
+  async addPost(newPost) {
     try {
-      let res = await api.Post("")
+      let res = await api.Post("", newPost)
+      ProxyState.posts = [...ProxyState.posts, new Post(res.data)]
     } catch (error) {
       console.error(error)
     }

@@ -14,18 +14,25 @@
         <!-- Nav Bar Here -->
         <nav class="row navbar sticky-top navbar-light bg-primary">
             <div class="col-3">
-                <form>
+                <form onsubmit="app.postsController.addPost()">
                     <div class="form-group">
-                    <label for="ImgUrlInput">Create New Post</label>
-                    <input type="text" class="form-control" id="img" placeholder="Img URL...">
-                    <button type="button" class="btn btn-success">+</button>
+                        <label for="ImgUrlInput">Create New Post</label>
+                        <div class="d-flex">
+                            <input type="text" class="form-control" id="img" placeholder="Img URL...">
+                            <div>
+                                <button type="submit" class="btn btn-success">+</button>
+                            </div>
+                        </div>
+
                 </form>
             </div>
 
-            
+
             </div>
-            <h1 class="col d-flex justify-content-center" >Meme Me</h1>
-            <div class="col-3"><div class="flex-grow-1 justify-content-end align-items-center d-flex" id="authstate"></div></div>
+            <h1 class="col d-flex justify-content-center">Meme Me</h1>
+            <div class="col-3">
+                <div class="flex-grow-1 justify-content-end align-items-center d-flex" id="authstate"></div>
+            </div>
         </nav>
     </header>
     <main class="container-fluid">
@@ -51,7 +58,7 @@
                 <div id="bottomText">
                     <p>This is the bottom text!</p>
                 </div>
-               
+
             </div>
         </div>
 
