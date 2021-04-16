@@ -8,7 +8,7 @@ export default class Post {
 
   get Template() {
     return /* html */ `
-    <img class="side-img p-2 w-100" src="${this.imgUrl}" onclick="app.postsController.setActivePost(${this.id})" alt="">
+    <img class="side-img p-2 w-100" src="${this.imgUrl}" onclick="app.postsController.setActivePost('${this.id}')" alt="">
   `
   }
 

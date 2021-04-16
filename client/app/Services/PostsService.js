@@ -5,7 +5,7 @@ import { api } from '../Services/AxiosService.js'
 class PostsService {
   async addPost(newPost) {
     try {
-      let res = await api.post('/api/posts', newPost)
+      const res = await api.post('/api/posts', newPost)
       ProxyState.posts = [...ProxyState.posts, new Post(res.data)]
     } catch (error) {
       console.error(error)
@@ -37,6 +37,5 @@ class PostsService {
     }
   }
 }
-
 
 export const postsService = new PostsService()
