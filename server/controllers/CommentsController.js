@@ -39,7 +39,7 @@ export class CommentsController extends BaseController {
 
   async findById(req, res, next) {
     try {
-      req.body.creatorId = req.postInfo.id
+      req.body.creatorId = req.userInfo.id
       const data = await commentsService.findById({ _id: req.params.id })
       res.send(data)
     } catch (error) {
@@ -49,7 +49,7 @@ export class CommentsController extends BaseController {
 
   async create(req, res, next) {
     try {
-      req.body.creatorId = req.postInfo.id
+      req.body.creatorId = req.userInfo.id
       const data = await commentsService.create(req.body)
       res.send(data)
     } catch (error) {

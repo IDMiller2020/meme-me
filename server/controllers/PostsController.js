@@ -39,7 +39,7 @@ export class PostsController extends BaseController {
 
   async findById(req, res, next) {
     try {
-      req.body.creatorId = req.postInfo.id
+      req.body.creatorId = req.userInfo.id
       const data = await postsService.findById({ _id: req.params.id })
       res.send(data)
     } catch (error) {
@@ -49,6 +49,7 @@ export class PostsController extends BaseController {
 
   async create(req, res, next) {
     try {
+      req.body.creatorId = req.userInfo.id
       const data = await postsService.create(req.body)
       res.send(data)
     } catch (error) {
