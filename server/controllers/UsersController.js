@@ -1,6 +1,7 @@
 import BaseController from '../utils/BaseController'
 import { Auth0Provider } from '@bcwdev/auth0provider'
 import { usersService } from '../services/UsersService'
+import { BadRequest } from '../utils/Errors'
 
 export class UsersController extends BaseController {
   constructor() {
@@ -45,6 +46,10 @@ export class UsersController extends BaseController {
 
   async remove(req, res, next) {
     try {
+      const found = await this.findById(req.userInfo.id)
+      if (found.creatorId !== req.userInfo.id) {
+        throw new BadRequest('NOT YOURS')
+      }
       const data = await usersService.remove(req.params.id)
       return res.send(data)
     } catch (error) {
