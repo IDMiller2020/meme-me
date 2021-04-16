@@ -1,12 +1,22 @@
 export default class Comment {
   constructor(data) {
-    this.topText = data.topText
-    this.bottomText = data.bottomText
+    this.topComment = data.topComment
+    this.bottomComment = data.bottomComment
+    this.userId = data.userId
+    this.postId = data.postId
+    this.creatorId = data.creatorId
+    this.likes = 0
   }
 
-  get Template() {
+  get TopTemplate() {
     return `
-    <p>${this.topText}</p>
+    <p>${this.topComment}</p>
+    `
+  }
+
+  get BottomTemplate() {
+    return `
+    <p>${this.bottomComment}</p>
     `
   }
 }
