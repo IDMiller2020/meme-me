@@ -1,13 +1,13 @@
 import { dbContext } from '../db/DbContext'
 import { BadRequest } from '../utils/Errors'
 
-class PostsService {
+class CommentsService {
   async find(query = {}) {
-    return await dbContext.Posts.find(query)
+    return await dbContext.Comments.find(query)
   }
 
   async remove(id) {
-    const data = await dbContext.Posts.findOneAndDelete({ _id: id })
+    const data = await dbContext.Comments.findOneAndDelete({ _id: id })
     if (!data) {
       throw new BadRequest('Invalid Id')
     }
@@ -15,16 +15,16 @@ class PostsService {
   }
 
   async findById(id) {
-    const post = await dbContext.Posts.findById(id)
-    if (!post) {
+    const comment = await dbContext.Comments.findById(id)
+    if (!comment) {
       throw new BadRequest('Invalid Id')
     }
-    return post
+    return comment
   }
 
   async create(body) {
-    return await dbContext.Posts.create(body)
+    return await dbContext.Comments.create(body)
   }
 }
 
-export const postsService = new PostsService()
+export const commentsService = new CommentsService()

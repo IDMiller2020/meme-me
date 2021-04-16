@@ -17,6 +17,14 @@ class UsersService {
   async create(body) {
     return await dbContext.Users.create(body)
   }
+
+  async remove(id) {
+    const data = await dbContext.Users.findOneAndDelete({ _id: id })
+    if (!data) {
+      throw new BadRequest('Invalid Id')
+    }
+    return 'Successfully Deleted'
+  }
 }
 
 export const usersService = new UsersService()

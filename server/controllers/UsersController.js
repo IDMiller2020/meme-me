@@ -11,6 +11,7 @@ export class UsersController extends BaseController {
       .use(Auth0Provider.getAuthorizedUserInfo)
       .get('/:id', this.findById)
       .post('', this.create)
+      .delete('/:id', this.remove)
   }
 
   async getAll(req, res, next) {
@@ -37,6 +38,15 @@ export class UsersController extends BaseController {
       req.body.creatorId = req.userInfo.id
       const data = await usersService.create(req.body)
       res.send(data)
+    } catch (error) {
+      next(error)
+    }
+  }
+
+  async remove(req, res, next) {
+    try {
+      const data = await usersService.remove(req.params.id)
+      return res.send(data)
     } catch (error) {
       next(error)
     }
