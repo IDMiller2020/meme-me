@@ -13,7 +13,7 @@
     <header class="container-fluid">
         <!-- Nav Bar Here -->
         <nav class="row navbar sticky-top navbar-light bg-primary">
-            <div class="col-3">
+            <div class="col-md-3">
                 <form onsubmit="app.postsController.addPost()">
                     <div class="form-group">
                         <label for="ImgUrlInput">Create New Post</label>
@@ -23,50 +23,35 @@
                                 <button type="submit" class="btn btn-success">+</button>
                             </div>
                         </div>
-
                 </form>
             </div>
-
-
             </div>
             <h1 class="col d-flex justify-content-center">Meme Me</h1>
-            <div class="col-3">
+            <div class="col-md-3">
                 <div class="flex-grow-1 justify-content-end align-items-center d-flex" id="authstate"></div>
             </div>
         </nav>
     </header>
     <main class="container-fluid">
-        <div class="row my-3">
+        <div class="row my-md-3">
             <!--Side imgs  -->
-            <div class="col-md-4 text-center d-flex flex-column" id="sideImgs">
-                <img class="img-top p-2" src="http://placehold.it/200X200" alt="">
-                <img class="p-2" src="http://placehold.it/200X200"
-                    class="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}"
-                    alt="">
-                <img class="p-2" src="http://placehold.it/200X200"
-                    class="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}"
-                    alt="">
+            <div class="locked-scroll col-md-4 text-center d-flex flex-column" id="sideImgs">
             </div>
             <!-- Main Image -->
             <div class="col-md-7 text-center">
                 <div id="topText">
                     <p>This is the top text!</p>
                 </div>
-                <img class="" src="http://placehold.it/200X200"
-                    class="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}"
-                    alt="">
+                <div id="active">
+                
+                </div>
                 <div id="bottomText">
                     <p>This is the bottom text!</p>
                 </div>
-
             </div>
         </div>
-
         <div class="row" id="addComment">
         </div>
-
-
-
         </div>
         </div>
     </main>

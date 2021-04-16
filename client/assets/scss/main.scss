@@ -15,5 +15,23 @@ main {
   flex-grow: 1;
 }
 
+.side-img {
+  float: left;
+  width:  25vw;
+  height: 25vh;
+  object-fit: cover;
+}
+
+.locked-scroll {
+  height: 76vh;
+  overflow-y: scroll;
+}
+
+.active{
+ 
+  width:  50vw;
+  height: 50vh;
+  object-fit: cover;
+}
 
 

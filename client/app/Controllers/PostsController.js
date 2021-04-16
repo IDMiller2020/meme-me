@@ -1,30 +1,37 @@
 /* eslint-disable no-console */
 import { ProxyState } from '../AppState.js'
+import Post from '../Models/Post.js'
 import { postsService } from '../Services/PostsService.js'
 
 // Private
-function _draw() {
+function _drawPosts() {
+  let template = ''
   const posts = ProxyState.posts
-  console.log(posts)
+  posts.forEach(p => template += p.Template)
+  document.getElementById('sideImgs').innerHTML = template
 }
 
 function _drawActive() {
-  const activePost = ProxyState.activePost
+  const post = ProxyState.activePost
+  document.getElementById('active').innerHTML = post.Active
 }
 
 // Public
 export default class PostsController {
   constructor() {
-    ProxyState.on('posts', _draw)
+    ProxyState.on('posts', _drawPosts)
+    ProxyState.on('activePost', _drawActive)
+    this.getPosts()
   }
 
   async addPost() {
     window.event.preventDefault()
     const form = window.event.target
+    // @ts-ignore
     const newPost = { imgUrl: form.img.value }
     await postsService.addPost(newPost)
+    // @ts-ignore
     form.reset()
-    console.log("test");
   }
 
   async getPosts() {
