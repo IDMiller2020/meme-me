@@ -22,12 +22,9 @@ export default class PostsController {
     window.event.preventDefault()
     const form = window.event.target
     const newPost = { imgUrl: form.img.value }
-    try {
-      await postsService.addPost(newPost)
-    } catch (error) {
-      console.error(error)
-    }
+    await postsService.addPost(newPost)
     form.reset()
+    console.log("test");
   }
 
   async getPosts() {
