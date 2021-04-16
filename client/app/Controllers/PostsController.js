@@ -18,11 +18,40 @@ export default class PostsController {
     ProxyState.on('posts', _draw)
   }
 
-  addPost() {
-    postsService.addPost()
+  async addPost() {
+    window.event.preventDefault()
+    const form = window.event.target
+    // TODO make sure img is the id of the image form
+    const newPost = { imgUrl: form.img }
+
+    try {
+      await postsService.addPost()
+    } catch (error) {
+      console.error(error)
+    }
   }
 
-  getPosts() {
+  async getPosts() {
+    try {
+      await postsService.getPosts()
+    } catch (error) {
+      console.error(error)
+    }
+  }
 
+  async deletePost(id) {
+    try {
+      await postsService.deletePost(id)
+    } catch (error) {
+      console.error(error)
+    }
+  }
+
+  async setActivePost(id) {
+    try {
+      await postsService.setActivePost(id)
+    } catch (error) {
+      console.error(error)
+    }
   }
 }
