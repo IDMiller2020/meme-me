@@ -11,7 +11,7 @@
 
 <body>
     <header class="container-fluid">
-    <!-- Nav Bar Here -->
+        <!-- Nav Bar Here -->
         <nav class="row navbar sticky-top navbar-light bg-light">
             <a class="col-md-11 navbar-brand text-center" href="#">Meme Me <div
                     class="flex-grow-1 justify-content-end align-items-center d-flex" id="authstate"></div>
@@ -20,7 +20,7 @@
     </header>
     <main class="container-fluid">
         <div class="row my-3">
-        <!--Side imgs  -->
+            <!--Side imgs  -->
             <div class="col-md-4 text-center d-flex flex-column" id="sideImgs">
                 <img class="img-top p-2" src="http://placehold.it/200X200" alt="">
                 <img class="p-2" src="http://placehold.it/200X200"
@@ -38,64 +38,65 @@
                 <img class="" src="http://placehold.it/200X200"
                     class="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}"
                     alt="">
-                    <div id="bottomText">
-                        <p>This is the bottom text!</p>
-                    </div>
-            </div>
+                <div id="bottomText">
+                    <p>This is the bottom text!</p>
+                </div>
 
-<!-- testing Modal -->
-<div class="col">
-    <p>Comments
-        <!-- Button trigger modal -->
-        <button title="Open Create Comment Form" type="button" class="btn btn-outline-success"
-            data-toggle="modal" data-target="#new-comment-form">
-            <i class="fas fa-plus" aria-hidden="true"></i>
-        </button>
-    </p>
-</div>
-</div>
-<!-- Modal -->
-<div class="modal fade" id="new-comment-form" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-aria-hidden="true">
-<div class="modal-dialog" role="document">
-    <div class="modal-content">
-        <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">New Comment</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
+                <!-- testing Modal -->
+                <div class="col">
+                    <p>Comments
+                        <!-- Button trigger modal -->
+                        <button title="Open Create Comment Form" type="button" class="btn btn-outline-success"
+                            data-toggle="modal" data-target="#new-comment-form">
+                            <i class="fas fa-plus" aria-hidden="true"></i>
+                        </button>
+                    </p>
+                </div>
+            </div>
         </div>
-        <!-- when submitted run the function provided
+        <!-- Modal -->
+        <div class="modal fade" id="new-comment-form" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">New Comment</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <!-- when submitted run the function provided
         this can be triggered by the button or the enter key -->
-        <form onsubmit="app.commentsController.addComment()">
-            <div class="modal-body">
-                <!-- Form to create a car  -->
-                <div class="form-group">
-                    <label for="topComment">Top Comment</label>
-                    <!-- the id determines the property on the form object -->
-                    <input type="text" class="form-control" id="make" placeholder="Top Comment..." required>
-                </div>
-                <div class="form-group">
-                    <label for="bottomComment">Bottom Comment</label>
-                    <input type="text" class="form-control" id="model" placeholder="Bottom Comment..." required>
+                    <form onsubmit="app.commentsController.addComment()">
+                        <div class="modal-body">
+                            <!-- Form to create a car  -->
+                            <div class="form-group">
+                                <label for="topComment">Top Comment</label>
+                                <!-- the id determines the property on the form object -->
+                                <input type="text" class="form-control" id="make" placeholder="Top Comment..." required>
+                            </div>
+                            <div class="form-group">
+                                <label for="bottomComment">Bottom Comment</label>
+                                <input type="text" class="form-control" id="model" placeholder="Bottom Comment..."
+                                    required>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary">Create</button>
+                        </div>
+                    </form>
                 </div>
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-primary">Create</button>
-            </div>
-        </form>
-    </div>
-</div>
-</div>
+        </div>
 
-</div>
-</div>
-</div>
-</div>
+        </div>
+        </div>
+        </div>
+        </div>
 
-<div class="row" id="addComment">
-</div>
+        <div class="row" id="addComment">
+        </div>
 
 
 
