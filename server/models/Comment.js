@@ -8,8 +8,7 @@ const Comment = new Schema(
     creatorId: { type: String, ref: 'Account', required: true },
     topComment: { type: String },
     bottomComment: { type: String, required: true },
-    likes: { type: Number, required: true },
-    dislikes: { type: Number, required: true }
+    likes: { type: Number, required: true }
   },
   { timestamps: true, toJSON: { virtuals: true } }
 )
