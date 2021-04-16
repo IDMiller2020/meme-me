@@ -1,20 +1,19 @@
 import mongoose from 'mongoose'
 const Schema = mongoose.Schema
 
-const Value = new Schema(
+const User = new Schema(
   {
-    title: { type: String, required: true },
-    description: { type: String, required: true },
+    name: { type: String, required: true },
     creatorId: { type: String, ref: 'Account', required: true }
   },
   { timestamps: true, toJSON: { virtuals: true } }
 )
 
-Value.virtual('creator', {
+User.virtual('creator', {
   localField: 'creatorId',
   ref: 'Account',
   foreignField: '_id',
   justOne: true
 })
 
-export default Value
+export default User
