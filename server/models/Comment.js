@@ -5,6 +5,7 @@ const Comment = new Schema(
   {
     userId: { type: Schema.Types.ObjectId, ref: 'User', required: true },
     postId: { type: Schema.Types.ObjectId, ref: 'Post', required: true },
+    creatorId: { type: String, ref: 'Account', required: true },
     topComment: { type: String },
     bottomComment: { type: String, required: true },
     likes: { type: Number, required: true },

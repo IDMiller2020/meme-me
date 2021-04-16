@@ -1,6 +1,7 @@
 import BaseController from '../utils/BaseController'
 import { Auth0Provider } from '@bcwdev/auth0provider'
 import { commentsService } from '../services/CommentsService'
+import { BadRequest } from '../utils/Errors'
 
 export class CommentsController extends BaseController {
   constructor() {
@@ -16,6 +17,10 @@ export class CommentsController extends BaseController {
 
   async remove(req, res, next) {
     try {
+      const found = await this.findById(req.userInfo.id)
+      if (found.creatorId !== req.userInfo.id) {
+        throw new BadRequest('NOT YOURS')
+      }
       const data = await commentsService.remove(req.params.id)
       return res.send(data)
     } catch (error) {
