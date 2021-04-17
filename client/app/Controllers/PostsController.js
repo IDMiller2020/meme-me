@@ -8,6 +8,7 @@ import { postsService } from '../Services/PostsService.js'
 function _drawPosts() {
   let template = ''
   const posts = ProxyState.posts
+
   posts.forEach(p => template += p.Template)
   document.getElementById('sideImgs').innerHTML = template
 }

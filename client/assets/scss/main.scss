@@ -20,6 +20,7 @@ main {
   width:  25vw;
   height: 25vh;
   object-fit: cover;
+  object-position: center center;
 }
 
 .locked-scroll {
@@ -28,10 +29,10 @@ main {
 }
 
 .active{
- 
   width:  50vw;
   height: 50vh;
-  object-fit: cover;
+  object-fit: contain;
 }
+
 
 
