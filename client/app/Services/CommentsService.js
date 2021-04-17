@@ -15,12 +15,14 @@ class CommentsService {
   async getComments() {
     const res = await api.get('api/comments')
     ProxyState.comments = res.data.map(c => new Comment(c))
-    console.log(res.data);
+    console.log(res.data)
   }
 
-  // addComment() {
-  //   ProxyState.comments = [...ProxyState.comments, new Comment({ title: Math.random() })]
-  // }
+  async addComment(newComment) {
+    const res = await api.post('api/comments', newComment)
+    ProxyState.comments = [...ProxyState.comments, new Comment(res.data)]
+    ProxyState.activeComments = [...ProxyState.activeComments, new Comment(res.data)]
+  }
 }
 
 export const commentsService = new CommentsService()

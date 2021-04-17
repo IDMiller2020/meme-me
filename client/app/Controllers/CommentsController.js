@@ -8,11 +8,20 @@ import { commentsService } from '../Services/CommentsService.js'
 //   console.log(comments)
 // }
 function _drawComments() {
-  console.log('drawing comments');
+  console.log('drawing comments')
   const comments = ProxyState.activeComments
   let template = ''
   comments.forEach(c => template += c.Template)
-  document.getElementById('allComments').innerHTML = "<div class='card-header'>Comments</div>" + template
+  document.getElementById('allComments').innerHTML =
+  "<div class='card-header'>Captions</div>" + template +
+  `
+  <form onsubmit="app.commentsController.addComment()">
+    <div class="form-group d-flex">
+      <input type="text" class="form-control" id="top" placeholder="Top Text...">
+      <input type="text" class="form-control" id="bottom" placeholder="Bottom Text...">
+      <button type="submit" class="btn btn-success">+</button>
+    </div>
+  </form>`
 }
 
 // Public
@@ -20,11 +29,27 @@ export default class CommentsController {
   constructor() {
     // ProxyState.on('comments', _draw)
     ProxyState.on('activeComments', _drawComments)
+    ProxyState.on('comments', _drawComments)
     this.getComments()
   }
 
-  addComment() {
-    commentsService.addComment()
+  async addComment() {
+    try {
+      window.event.preventDefault()
+      const form = window.event.target
+      // @ts-ignore
+      const newComment = {
+        topComment: form.top.value,
+        bottomComment: form.bottom.value,
+        postId: ProxyState.activePost.id,
+        likes: 0
+      }
+      await commentsService.addComment(newComment)
+      // @ts-ignore
+      form.reset()
+    } catch (error) {
+      console.error(error)
+    }
   }
 
   async getComments() {
