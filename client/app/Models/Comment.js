@@ -10,9 +10,10 @@ export default class Comment {
 
   get Template() {
     return `
-    <div>
-    <li class="list-group-item">${this.topComment}/${this.bottomComment}  </li>
-    <p><button type="button" class="btn btn-success p-2" onclick="app.commentsController.like('${this.id}')">Like</button> Likes: ${this.likes}</p>
+    <div class="d-flex justify-content-between border border-primary align-items-center p-2">
+    <p>${this.topComment}/${this.bottomComment}  </p>
+    <p> Likes: ${this.likes} <button type="button" class="btn btn-success p-2 ml-auto" onclick="app.commentsController.like('${this.id}')"><i class="far fa-thumbs-up"></i>
+    </button></p>
   </div>
     `
   }
