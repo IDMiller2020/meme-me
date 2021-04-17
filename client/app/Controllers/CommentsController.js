@@ -7,14 +7,27 @@ function _draw() {
   const comments = ProxyState.comments
   console.log(comments)
 }
+function _drawComments() {
+  const comments = ProxyState.comments
+  console.log(comments)
+}
 
 // Public
 export default class CommentsController {
   constructor() {
     ProxyState.on('comments', _draw)
+    ProxyState.on('activePost', _drawComments)
   }
 
   addComment() {
     commentsService.addComment()
+  }
+
+  async getComments() {
+    try {
+      await commentsService.getComments()
+    } catch (error) {
+      console.error(error)
+    }
   }
 }

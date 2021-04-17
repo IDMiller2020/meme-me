@@ -2,21 +2,17 @@ export default class Comment {
   constructor(data) {
     this.topComment = data.topComment
     this.bottomComment = data.bottomComment
-    this.userId = data.userId
     this.postId = data.postId
     this.creatorId = data.creatorId
     this.likes = 0
   }
 
-  get TopTemplate() {
+  get Template() {
     return `
-    <p>${this.topComment}</p>
-    `
-  }
-
-  get BottomTemplate() {
-    return `
-    <p>${this.bottomComment}</p>
+    <div>
+    <li class="list-group-item">${this.topComment}</li>
+    <li class="list-group-item">${this.bottomComment}</li>
+  </div>
     `
   }
 }
