@@ -8,7 +8,6 @@ import { commentsService } from '../Services/CommentsService.js'
 //   console.log(comments)
 // }
 function _drawComments() {
-  console.log('drawing comments');
   const comments = ProxyState.activeComments
   let template = ''
   comments.forEach(c => template += c.Template)
