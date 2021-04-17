@@ -12,10 +12,27 @@
 <body>
     <header class="container-fluid">
         <!-- Nav Bar Here -->
-        <nav class="row navbar sticky-top navbar-light bg-light">
-            <a class="col-md-11 navbar-brand text-center" href="#">Meme Me <div
-                    class="flex-grow-1 justify-content-end align-items-center d-flex" id="authstate"></div>
-            </a>
+        <nav class="row navbar sticky-top navbar-light bg-primary">
+            <div class="col-3">
+                <form onsubmit="app.postsController.addPost()">
+                    <div class="form-group">
+                        <label for="ImgUrlInput">Create New Post</label>
+                        <div class="d-flex">
+                            <input type="text" class="form-control" id="img" placeholder="Img URL...">
+                            <div>
+                                <button type="submit" class="btn btn-success">+</button>
+                            </div>
+                        </div>
+
+                </form>
+            </div>
+
+
+            </div>
+            <h1 class="col d-flex justify-content-center">Meme Me</h1>
+            <div class="col-3">
+                <div class="flex-grow-1 justify-content-end align-items-center d-flex" id="authstate"></div>
+            </div>
         </nav>
     </header>
     <main class="container-fluid">
@@ -41,58 +58,8 @@
                 <div id="bottomText">
                     <p>This is the bottom text!</p>
                 </div>
-            </div>
 
-            <!-- testing Modal -->
-            <div class="col">
-                <p>Comments
-                    <!-- Button trigger modal -->
-                    <button title="Open Create Comment Form" type="button" class="btn btn-outline-success"
-                        data-toggle="modal" data-target="#new-comment-form">
-                        <i class="fas fa-plus" aria-hidden="true"></i>
-                    </button>
-                </p>
             </div>
-        </div>
-        <!-- Modal -->
-        <div class="modal fade" id="new-comment-form" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-            aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">New Comment</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <!-- when submitted run the function provided
-        this can be triggered by the button or the enter key -->
-                    <form onsubmit="app.commentsController.addComment()">
-                        <div class="modal-body">
-                            <!-- Form to create a car  -->
-                            <div class="form-group">
-                                <label for="topComment">Top Comment</label>
-                                <!-- the id determines the property on the form object -->
-                                <input type="text" class="form-control" id="make" placeholder="Top Comment..." required>
-                            </div>
-                            <div class="form-group">
-                                <label for="bottomComment">Bottom Comment</label>
-                                <input type="text" class="form-control" id="model" placeholder="Bottom Comment..."
-                                    required>
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="submit" class="btn btn-primary">Create</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-
-        </div>
-        </div>
-        </div>
         </div>
 
         <div class="row" id="addComment">
@@ -104,7 +71,7 @@
         </div>
     </main>
     <!-- Footer here -->
-    <footer class="container-fluid bg-light text-dark">
+    <footer class="container-fluid bg-primary text-dark">
         <div class="row text-center">
             <div class="col">
                 <p><small>Meme Me by Team Yellow</small></p>
