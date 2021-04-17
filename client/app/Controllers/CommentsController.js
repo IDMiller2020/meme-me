@@ -13,8 +13,8 @@ function _drawComments() {
   let template = ''
   comments.forEach(c => template += c.Template)
   document.getElementById('allComments').innerHTML =
-  "<div class='card-header'>Captions</div>" + template +
-  `
+    "<div class='card-header'>Captions</div>" + template +
+    `
   <form onsubmit="app.commentsController.addComment()">
     <div class="form-group d-flex">
       <input type="text" class="form-control" id="top" placeholder="Top Text...">
@@ -31,6 +31,7 @@ export default class CommentsController {
     ProxyState.on('activeComments', _drawComments)
     ProxyState.on('comments', _drawComments)
     this.getComments()
+    // this.getLikes()
   }
 
   async addComment() {
@@ -67,4 +68,12 @@ export default class CommentsController {
       console.error(error)
     }
   }
+
+  // async getLikes() {
+  //   try {
+  //     await commentsService.getLikes()
+  //   } catch (error) {
+  //     console.error(error)
+  //   }
+  // }
 }

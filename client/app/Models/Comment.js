@@ -4,7 +4,7 @@ export default class Comment {
     this.bottomComment = data.bottomComment
     this.postId = data.postId
     this.creatorId = data.creatorId
-    this.likes = 0
+    this.likes = data.likes || 0
     this.id = data.id
   }
 

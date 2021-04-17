@@ -30,6 +30,12 @@ class CommentsService {
     await api.put('api/comments/' + id, { likes: comment.likes })
     ProxyState.comments = ProxyState.comments
   }
+
+  // async getLikes() {
+  //   const res = await api.get('api/comments')
+  //   ProxyState.comments = res.data.map(c => new Comment(c))
+  //   console.log(res.data)
+  // }
 }
 
 export const commentsService = new CommentsService()

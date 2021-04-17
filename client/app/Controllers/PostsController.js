@@ -32,7 +32,7 @@ export default class PostsController {
     // @ts-ignore
     const newPost = { imgUrl: form.img.value }
     await postsService.addPost(newPost)
-    // @ts-ignore
+    // @ts-ignore 
     form.reset()
   }
 
