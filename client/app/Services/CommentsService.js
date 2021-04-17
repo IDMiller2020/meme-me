@@ -23,6 +23,13 @@ class CommentsService {
     ProxyState.comments = [...ProxyState.comments, new Comment(res.data)]
     ProxyState.activeComments = [...ProxyState.activeComments, new Comment(res.data)]
   }
+
+  async like(id) {
+    const comment = ProxyState.comments.find(c => c.id === id)
+    comment.likes += 1
+    await api.put('api/comments/' + id, { likes: comment.likes })
+    ProxyState.comments = ProxyState.comments
+  }
 }
 
 export const commentsService = new CommentsService()

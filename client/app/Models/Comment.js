@@ -5,13 +5,14 @@ export default class Comment {
     this.postId = data.postId
     this.creatorId = data.creatorId
     this.likes = 0
+    this.id = data.id
   }
 
   get Template() {
     return `
     <div>
-    <li class="list-group-item">${this.topComment}</li>
-    <li class="list-group-item">${this.bottomComment}</li>
+    <li class="list-group-item">${this.topComment}/${this.bottomComment}  </li>
+    <p><button type="button" class="btn btn-success p-2" onclick="app.commentsController.like('${this.id}')">Like</button> Likes: ${this.likes}</p>
   </div>
     `
   }

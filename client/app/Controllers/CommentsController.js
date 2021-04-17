@@ -8,10 +8,7 @@ import { commentsService } from '../Services/CommentsService.js'
 //   console.log(comments)
 // }
 function _drawComments() {
-<<<<<<< HEAD
   console.log('drawing comments')
-=======
->>>>>>> df8f3f4774ef1350f8419206254277b8293eca8d
   const comments = ProxyState.activeComments
   let template = ''
   comments.forEach(c => template += c.Template)
@@ -50,6 +47,14 @@ export default class CommentsController {
       await commentsService.addComment(newComment)
       // @ts-ignore
       form.reset()
+    } catch (error) {
+      console.error(error)
+    }
+  }
+
+  async like(id) {
+    try {
+      await commentsService.like(id)
     } catch (error) {
       console.error(error)
     }

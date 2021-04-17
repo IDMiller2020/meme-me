@@ -25,6 +25,14 @@ class CommentsService {
   async create(body) {
     return await dbContext.Comments.create(body)
   }
+
+  async edit(body) {
+    const data = await dbContext.Comments.findOneAndUpdate({ _id: body.id }, body, { new: true })
+    if (!data) {
+      throw new BadRequest('Invalid ID')
+    }
+    return data
+  }
 }
 
 export const commentsService = new CommentsService()

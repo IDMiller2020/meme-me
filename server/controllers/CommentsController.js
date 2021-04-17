@@ -13,6 +13,7 @@ export class CommentsController extends BaseController {
       .get('/:id', this.findById)
       .post('', this.create)
       .delete('/:id', this.remove)
+      .put('/:id', this.edit)
   }
 
   async remove(req, res, next) {
@@ -52,6 +53,16 @@ export class CommentsController extends BaseController {
       req.body.creatorId = req.userInfo.id
       const data = await commentsService.create(req.body)
       res.send(data)
+    } catch (error) {
+      next(error)
+    }
+  }
+
+  async edit(req, res, next) {
+    try {
+      req.body.id = req.params.id
+      const data = await commentsService.edit(req.body)
+      return res.send(data)
     } catch (error) {
       next(error)
     }
