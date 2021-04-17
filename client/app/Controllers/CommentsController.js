@@ -2,21 +2,25 @@
 import { ProxyState } from '../AppState.js'
 import { commentsService } from '../Services/CommentsService.js'
 
-// Private
-function _draw() {
-  const comments = ProxyState.comments
-  console.log(comments)
-}
+// // Private
+// function _draw() {
+//   const comments = ProxyState.comments
+//   console.log(comments)
+// }
 function _drawComments() {
-  const comments = ProxyState.comments
-  console.log(comments)
+  console.log('drawing comments');
+  const comments = ProxyState.activeComments
+  let template = ''
+  comments.forEach(c => template += c.Template)
+  document.getElementById('allComments').innerHTML = "<div class='card-header'>Comments</div>" + template
 }
 
 // Public
 export default class CommentsController {
   constructor() {
-    ProxyState.on('comments', _draw)
-    ProxyState.on('activePost', _drawComments)
+    // ProxyState.on('comments', _draw)
+    ProxyState.on('activeComments', _drawComments)
+    this.getComments()
   }
 
   addComment() {

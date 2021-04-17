@@ -1,6 +1,7 @@
 /* eslint-disable no-console */
 import { ProxyState } from '../AppState.js'
 import Post from '../Models/Post.js'
+import { commentsService } from '../Services/CommentsService.js'
 import { postsService } from '../Services/PostsService.js'
 
 // Private
@@ -53,6 +54,7 @@ export default class PostsController {
   async setActivePost(id) {
     try {
       await postsService.setActivePost(id)
+      await commentsService.setActiveComment(id)
     } catch (error) {
       console.error(error)
     }

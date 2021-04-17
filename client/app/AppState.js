@@ -7,6 +7,7 @@ class AppState extends EventEmitter {
   comments = []
   posts = []
   activePost = null
+  activeComments = []
 }
 
 export const ProxyState = new Proxy(new AppState(), {
